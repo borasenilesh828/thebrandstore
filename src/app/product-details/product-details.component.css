@@ -1,0 +1,9 @@
+.product-rating {
+    color: gold;
+    margin-bottom: 10px;
+  }
+  .img-fluid{
+    height: 400px;
+    border-radius: 20px;
+    /* box-shadow: 0px 0px 6px #000000, 0 0 6px #0000003b ; */
+  }

@@ -1,0 +1,38 @@
+<p-progressBar mode="indeterminate" *ngIf="isLoading" [style]="{'height': '6px'}"></p-progressBar>
+<div class="m-3">
+  &nbsp;<button class="btn btn-outline-info" (click)="navigateHome()"><i class="bi bi-arrow-left"></i></button>
+  </div>
+<div class="container">
+    <h3 class="text-center text-primary">Mobile</h3><br>
+<div class="product-cart">
+
+<div class="product-cart-item" *ngFor="let product of Mobile" >
+    <i class="bi bi-bookmark"></i>
+<div class="product-image" [id]="product.id">
+<img [src]="product.image" [alt]="product.title"(click)="goToProductDetails(product)"/>
+</div>
+<div class="product-details m-2">
+  <h6 class="product-title">{{ product.brand }}</h6>
+<p class="product-title">{{ product.title }}</p>
+<div class="product-rating">
+    <ng-container *ngFor="let star of getStarRating(product.rating.star)">
+      <ng-container *ngIf="star === 'half'">
+        <i class="bi bi-star-half"></i>
+      </ng-container>
+      <ng-container *ngIf="star === 'empty'">
+        <i class="bi bi-star"></i>
+      </ng-container>
+      <ng-container *ngIf="star !== 'half' && star !== 'empty'">
+        <i class="bi bi-star-fill"></i>
+      </ng-container>
+    </ng-container>
+  </div>
+  
+<div class="product-price">₹ {{ product.price }}</div>
+<button class="p-ripple p-element p-button p-component p-button-icon-only" (click)="addToCart(product)" id="product-add-to-cart">
+<span class="pi pi-shopping-cart p-button-icon ng-star-inserted" aria-hidden="true"></span>
+</button>
+</div>
+
+</div>
+</div>

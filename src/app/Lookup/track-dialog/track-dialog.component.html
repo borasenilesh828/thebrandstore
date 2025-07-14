@@ -1,0 +1,14 @@
+
+    <p-timeline [value]="events1">
+		<ng-template pTemplate="marker" let-event>
+            <!-- <span class="custom-marker shadow-2" [style.backgroundColor]="event.color"> -->
+                <i [ngClass]="event.icon"></i>
+            <!-- </span> -->
+        </ng-template>
+        <ng-template pTemplate="content" let-event>
+            <small class="p-text-secondary">{{event.date | date: 'dd/MM/yy hh:mm:ss a'}}</small>
+        </ng-template>
+        <ng-template pTemplate="opposite" let-event>
+            {{event.status}}
+        </ng-template>
+    </p-timeline>

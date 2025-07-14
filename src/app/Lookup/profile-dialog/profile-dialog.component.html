@@ -1,0 +1,23 @@
+
+    <div class="container d-flex justify-content-center">
+        <form>
+          <div class="form-group">
+            <h4 for="name">Name <span class="btn btn-link" (click)="enableEdit('Name')">Edit</span></h4>
+            <input type="text" class="form-control" id="name" [disabled]="enableName" [(ngModel)]="Name" name="name">
+          </div>
+      
+          <div class="form-group">
+            <h4 for="email">Email Address <span class="btn btn-link" (click)="enableEdit('Email')">Edit</span></h4>
+            <input type="email" class="form-control" id="email" [disabled]="enableEmail" [(ngModel)]="Email" name="email">
+          </div>
+      
+          <!-- <div class="form-group">
+            <h4 for="mobile">Mobile Number <span class="btn btn-link" (click)="enableEdit('Mobile')">Edit</span> </h4>
+            <input type="tel" class="form-control" id="mobile" [disabled]="enableMobile" [(ngModel)]="Mobile" name="mobile">
+          </div> -->
+      
+        </form>
+    </div>
+    <div class="d-flex justify-content-center m-3" *ngIf="enableSave">
+    <p-button label="Save" (onClick)="Save()"></p-button>
+</div>

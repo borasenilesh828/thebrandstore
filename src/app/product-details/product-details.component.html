@@ -1,0 +1,72 @@
+<div *ngIf="selectedProduct">
+  
+&nbsp;<button class="btn btn-outline-info" (click)="navigate()"><i class="bi bi-arrow-left"></i></button>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6">
+      <img [src]="selectedProduct.image" [alt]="selectedProduct.title" class="img-fluid" >
+
+    </div>
+    <div class="col-md-6">
+      <h3 class="text-primary">{{selectedProduct.brand}}</h3>
+      <h2 class="h3">{{ selectedProduct.title }}</h2>
+      <div class="product-rating">
+        <ng-container *ngFor="let star of getStarRating(selectedProduct.rating.star)">
+          <ng-container *ngIf="star === 'half'">
+            <i class="bi bi-star-half"></i>
+          </ng-container>
+          <ng-container *ngIf="star === 'empty'">
+            <i class="bi bi-star"></i>
+          </ng-container>
+          <ng-container *ngIf="star !== 'half' && star !== 'empty'">
+            <i class="bi bi-star-fill"></i>
+          </ng-container>
+        </ng-container>
+        <p class="text-black ml-2 mb-0">&nbsp; {{selectedProduct.rating.count}} Reviews</p>
+      </div>
+      
+      <h3 class="d-flex align-items-center">
+        Price : ₹ {{ selectedProduct.price }} &nbsp;
+        <p class="h6 ml-2 mb-0 text-muted"><del class="text-danger">₹4699</del> off</p>
+      </h3>
+      
+      
+      <div class="container mt-4">
+        <div class="row">
+          <div class="col-md-10">
+            <h6 class="mt-3 text-primary"><i class="bi bi-tags-fill"></i> Available offers</h6>
+            <ul class="list-unstyled">
+              <li>
+                <i class="bi bi-tag"></i>
+                Eligible for The Brand Store Pay Later ?
+              </li>
+              <li>
+                <i class="bi bi-tag"></i>
+                5% Cashback on Axis Bank Card <small>(T&amp;C)</small>
+              </li>
+              <li>
+                <i class="bi bi-tag"></i>
+                ₹4000 Off On HDFC Bank Credit Card Transactions <small>(T&amp;C)</small>
+              </li>
+              <li>
+                <i class="bi bi-tag"></i>
+                ₹2000 Off On ICICI Bank Card <small>(T&amp;C)</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p>{{selectedProduct.description}}</p>
+      </div>
+      
+      <button class="btn btn-primary" (click)="addToCart(selectedProduct)">
+        <i class="pi pi-shopping-cart"></i> Add to Cart
+      </button>
+    </div>
+  </div>
+</div>
+
+
+</div>
+

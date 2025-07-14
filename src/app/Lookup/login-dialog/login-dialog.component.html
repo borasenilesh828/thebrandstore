@@ -1,0 +1,72 @@
+<div *ngIf="Logincomp">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title text-center text-primary">Login</h3>
+
+                    <!-- Your Angular template -->
+                    <!-- <form (ngSubmit)="submitLoginForm()"> -->
+                        <div class="form-floating">
+                            <input type="email" name="email" [(ngModel)]="email" class="form-control" id="floatingInput"
+                                placeholder required>
+                            <label for="floatingInput">Email address</label>
+                        </div>
+                        &nbsp;
+                        <div class="form-floating">
+                            <input type="password" name="password" [(ngModel)]="password" class="form-control"
+                                id="floatingPassword" placeholder required>
+                            <label for="floatingPassword">Password</label>
+                        </div>
+                        &nbsp;
+                        <button class="btn btn-primary w-100 py-2" type="submit" (click)="submitLoginForm()">LOGIN</button>
+                    <!-- </form> -->
+
+
+
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <span>Don't have an account?</span> <button class="btn btn-link" (click)="EnableSignUp()">
+                        Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div *ngIf="!Logincomp">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title text-center text-primary">Sign Up</h3>
+                    <form (ngSubmit)="submitRegisterForm()">
+                        <div class="form-floating">
+                            <input type="text" name="username" [(ngModel)]="username" class="form-control"
+                                id="floatingName" placeholder required>
+                            <label for="floatingName">Username</label>
+                        </div>
+                        &nbsp;
+                        <div class="form-floating">
+                            <input type="email" name="email" [(ngModel)]="Remail" class="form-control" id="floatingInput"
+                                placeholder required>
+                            <label for="floatingInput">Email address</label>
+                        </div>
+                        &nbsp;
+                        <div class="form-floating">
+                            <input type="password" name="password" [(ngModel)]="Rpassword" class="form-control"
+                                id="floatingPassword" placeholder required>
+                            <label for="floatingPassword">Password</label>
+                        </div>
+                        &nbsp;
+                        <button class="btn btn-primary w-100 py-2" type="submit">REGISTER</button>
+                    </form>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <span>Already Member?</span><button type="submit" class="btn btn-link" (click)="EnableLogin()">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

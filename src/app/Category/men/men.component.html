@@ -1,0 +1,240 @@
+<!-- <p-progressBar mode="indeterminate" *ngIf="isLoading" [style]="{'height': '6px'}"></p-progressBar> -->
+<div *ngIf="isLoading">
+  <app-loader></app-loader>
+</div>
+<div class="m-3">
+&nbsp;<button class="btn btn-outline-info" (click)="navigateHome()"><i class="bi bi-arrow-left"></i></button>
+</div>
+
+<div class="container">
+    <div class="line-slider-container">
+      <div class="slider-item" *ngFor="let a of category">
+        <img src="{{ a.img }}" width="100px" height="50px" alt="{{ a.title }}" (click)="navigate(a.title)">
+        <h5 (click)="navigate(a.title)">{{ a.title }}</h5>
+      </div>
+    </div>
+    </div>
+    
+    <div>
+    
+    <br>
+    <h3 class="text-center text-primary">{{title}}</h3><br>
+    
+    
+      <div class="container">
+                                                     <!-- Shirt Section -->
+    
+      <div class="product-cart" *ngIf="title=='Shirt'">
+    
+        <div class="product-cart-item" *ngFor="let product of Shirt" >
+          <i class="bi bi-bookmark"></i>
+          <div class="product-image" [id]="product.id">
+            <img [src]="product.image" [alt]="product.title" (click)="goToProductDetails(product)"/>
+          </div>
+          <div class="product-details m-2">
+            <h6 class="product-title">{{ product.brand }}</h6>
+            <p class="product-title">{{ product.title }}</p>
+            <div class="product-rating">
+              <ng-container *ngFor="let star of getStarRating(product.rating.star)">
+                <ng-container *ngIf="star === 'half'">
+                  <i class="bi bi-star-half"></i>
+                </ng-container>
+                <ng-container *ngIf="star === 'empty'">
+                  <i class="bi bi-star"></i>
+                </ng-container>
+                <ng-container *ngIf="star !== 'half' && star !== 'empty'">
+                  <i class="bi bi-star-fill"></i>
+                </ng-container>
+              </ng-container>
+            </div>
+            
+            <div class="product-price">₹ {{ product.price }}</div>
+            <button class="p-ripple p-element p-button p-component p-button-icon-only" (click)="addToCart(product)" id="product-add-to-cart">
+              <span class="pi pi-shopping-cart p-button-icon ng-star-inserted" aria-hidden="true"></span>
+            </button>
+          </div>
+    
+        </div>
+      </div>
+    
+                                                        <!-- Hoodie Section -->
+    
+      <div class="product-cart" *ngIf="title=='Hoodie'">
+    
+        <div class="product-cart-item" *ngFor="let product of Hoodie" >
+          <i class="bi bi-bookmark"></i>
+          <div class="product-image" [id]="product.id">
+            <img [src]="product.image" [alt]="product.title" (click)="goToProductDetails(product)"/>
+          </div>
+          <div class="product-details m-2">
+            <h6 class="product-title">{{ product.brand }}</h6>
+            <p class="product-title">{{ product.title }}</p>
+            <div class="product-rating">
+              <ng-container *ngFor="let star of getStarRating(product.rating.star)">
+                <ng-container *ngIf="star === 'half'">
+                  <i class="bi bi-star-half"></i>
+                </ng-container>
+                <ng-container *ngIf="star === 'empty'">
+                  <i class="bi bi-star"></i>
+                </ng-container>
+                <ng-container *ngIf="star !== 'half' && star !== 'empty'">
+                  <i class="bi bi-star-fill"></i>
+                </ng-container>
+              </ng-container>
+            </div>
+            
+            <div class="product-price">₹ {{ product.price }}</div>
+            <button class="p-ripple p-element p-button p-component p-button-icon-only" (click)="addToCart(product)" id="product-add-to-cart">
+              <span class="pi pi-shopping-cart p-button-icon ng-star-inserted" aria-hidden="true"></span>
+            </button>
+          </div>
+          </div>
+    
+        </div>
+    
+                                                   <!-- TShirt Section -->
+        
+      <div class="product-cart" *ngIf="title=='TShirt'">
+    
+        <div class="product-cart-item" *ngFor="let product of TShirt" >
+          <i class="bi bi-bookmark"></i>
+          <div class="product-image" [id]="product.id">
+            <img [src]="product.image" [alt]="product.title" (click)="goToProductDetails(product)"/>
+          </div>
+          <div class="product-details m-2">
+            <h6 class="product-title">{{ product.brand }}</h6>
+            <p class="product-title">{{ product.title }}</p>
+            <div class="product-rating">
+              <ng-container *ngFor="let star of getStarRating(product.rating.star)">
+                <ng-container *ngIf="star === 'half'">
+                  <i class="bi bi-star-half"></i>
+                </ng-container>
+                <ng-container *ngIf="star === 'empty'">
+                  <i class="bi bi-star"></i>
+                </ng-container>
+                <ng-container *ngIf="star !== 'half' && star !== 'empty'">
+                  <i class="bi bi-star-fill"></i>
+                </ng-container>
+              </ng-container>
+            </div>
+            
+            <div class="product-price">₹ {{ product.price }}</div>
+            <button class="p-ripple p-element p-button p-component p-button-icon-only" (click)="addToCart(product)" id="product-add-to-cart">
+              <span class="pi pi-shopping-cart p-button-icon ng-star-inserted" aria-hidden="true"></span>
+            </button>
+          </div>
+          </div>
+    
+        </div>
+                                   
+                                           <!-- Jeans Section -->
+    
+      <div class="product-cart" *ngIf="title=='Jeans'">
+    
+        <div class="product-cart-item" *ngFor="let product of Jeans" >
+          <i class="bi bi-bookmark"></i>
+          <div class="product-image" [id]="product.id">
+            <img [src]="product.image" [alt]="product.title" (click)="goToProductDetails(product)"/>
+          </div>
+          <div class="product-details m-2">
+            <h6 class="product-title">{{ product.brand }}</h6>
+            <p class="product-title">{{ product.title }}</p>
+            <div class="product-rating">
+              <ng-container *ngFor="let star of getStarRating(product.rating.star)">
+                <ng-container *ngIf="star === 'half'">
+                  <i class="bi bi-star-half"></i>
+                </ng-container>
+                <ng-container *ngIf="star === 'empty'">
+                  <i class="bi bi-star"></i>
+                </ng-container>
+                <ng-container *ngIf="star !== 'half' && star !== 'empty'">
+                  <i class="bi bi-star-fill"></i>
+                </ng-container>
+              </ng-container>
+            </div>
+            
+            <div class="product-price">₹ {{ product.price }}</div>
+            <button class="p-ripple p-element p-button p-component p-button-icon-only" (click)="addToCart(product)" id="product-add-to-cart">
+              <span class="pi pi-shopping-cart p-button-icon ng-star-inserted" aria-hidden="true"></span>
+            </button>
+          </div>
+          </div>
+    
+        </div>
+    
+                                               <!-- Jacket Section -->
+        
+      <div class="product-cart" *ngIf="title=='Jacket'">
+    
+        <div class="product-cart-item" *ngFor="let product of Jacket" >
+          <i class="bi bi-bookmark"></i>
+          <div class="product-image" [id]="product.id">
+            <img [src]="product.image" [alt]="product.title" (click)="goToProductDetails(product)"/>
+          </div>
+          <div class="product-details m-2">
+            <h6 class="product-title">{{ product.brand }}</h6>
+            <p class="product-title">{{ product.title }}</p>
+            <div class="product-rating">
+              <ng-container *ngFor="let star of getStarRating(product.rating.star)">
+                <ng-container *ngIf="star === 'half'">
+                  <i class="bi bi-star-half"></i>
+                </ng-container>
+                <ng-container *ngIf="star === 'empty'">
+                  <i class="bi bi-star"></i>
+                </ng-container>
+                <ng-container *ngIf="star !== 'half' && star !== 'empty'">
+                  <i class="bi bi-star-fill"></i>
+                </ng-container>
+              </ng-container>
+            </div>
+            
+            <div class="product-price">₹ {{ product.price }}</div>
+            <button class="p-ripple p-element p-button p-component p-button-icon-only" (click)="addToCart(product)" id="product-add-to-cart">
+              <span class="pi pi-shopping-cart p-button-icon ng-star-inserted" aria-hidden="true"></span>
+            </button>
+          </div>
+          </div>
+    
+        </div>
+    
+                                 <!-- Shoes Section -->
+        
+      <div class="product-cart" *ngIf="title=='Shoes'">
+    
+        <div class="product-cart-item" *ngFor="let product of Shoes" >
+          <i class="bi bi-bookmark"></i>
+          <div class="product-image" [id]="product.id">
+            <img [src]="product.image" [alt]="product.title" (click)="goToProductDetails(product)"/>
+          </div>
+          <div class="product-details m-2">
+            <h6 class="product-title">{{ product.brand }}</h6>
+            <p class="product-title">{{ product.title }}</p>
+            <div class="product-rating">
+              <ng-container *ngFor="let star of getStarRating(product.rating.star)">
+                <ng-container *ngIf="star === 'half'">
+                  <i class="bi bi-star-half"></i>
+                </ng-container>
+                <ng-container *ngIf="star === 'empty'">
+                  <i class="bi bi-star"></i>
+                </ng-container>
+                <ng-container *ngIf="star !== 'half' && star !== 'empty'">
+                  <i class="bi bi-star-fill"></i>
+                </ng-container>
+              </ng-container>
+            </div>
+            
+            
+            <div class="product-price">₹ {{ product.price }}</div>
+            <button class="p-ripple p-element p-button p-component p-button-icon-only" (click)="addToCart(product)" id="product-add-to-cart">
+              <span class="pi pi-shopping-cart p-button-icon ng-star-inserted" aria-hidden="true"></span>
+            </button>
+          </div>
+          </div>
+    
+        </div>
+    
+    
+        
+        </div>
+    
+      
