@@ -1,7 +1,3 @@
-## © Copyright
-© 2025 by Nilesh Borase. All rights reserved.
-
-
 # MyAngularApp : THeBrandStore
 
 This project was generated with **Angular CLI version 15.2.6**.
@@ -52,4 +48,6 @@ To get more help on the Angular CLI, use: ng help
 or check out the [Angular CLI Overview and Command Reference](https://angular.io/cli).
 
 ---
+
+## © Copyright 2025 by Nilesh Borase. All rights reserved.
 
