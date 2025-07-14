@@ -1,0 +1,9 @@
+@media (max-width: 768px) {
+    .m-5{
+        padding: 1px;
+    }
+  }
+  .custom-spinner-class {
+    color: #007bff; /* Change the spinner color */
+  }
+  

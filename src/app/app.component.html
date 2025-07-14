@@ -1,0 +1,73 @@
+<div *ngIf="isLoading">
+  <app-loader></app-loader>
+</div>
+<nav class="navbar navbar-expand-lg bg-primary-subtle fixed-top">
+  <div class="container-fluid">
+    <h1 class="navbar-brand text-white"><span class="navbar-brand mb-0 h1 text-primary"
+        (click)="navigate('Home')">T<span class="text-danger">H</span>E BRA<span class="text-danger">N</span>D ST<span
+          class="text-danger">O</span>RE</span></h1>
+          
+    <form class="d-flex">
+
+      <ng-container *ngIf="username">
+      <li class="nav-item dropdown" style="list-style: none;">
+        <a class="btn btn-light border dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-person"></i><span class="text-primary"> {{ (username || '').split(' ')[0] }}</span>
+
+        </a>
+        <div>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" (click)="showProfile()"><i class="bi bi-person-circle"></i> My Profile</a></li><hr>
+            <li><a class="dropdown-item" (click)="showOrder()"><i class="bi bi-box-seam"></i> Order</a></li>
+            <li><a class="dropdown-item" (click)="showWishlist()"><i class="bi bi-heart"></i> Wishlist</a></li>
+            <li><a class="dropdown-item" (click)="showCoupons()"><i class="bi bi-tag-fill"></i> Coupons</a></li>
+            <li><a class="dropdown-item" (click)="showWallet()"><i class="bi bi-credit-card-fill"></i> Wallet</a></li>
+            <li><a class="dropdown-item" (click)="showLogout()"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+            <!-- <li><a class="dropdown-item" href="#"></a></li> -->
+        </ul>
+      </div>
+    </li>
+      </ng-container>
+
+    &nbsp;
+      <a class="btn btn-light border" (click)="navigate('Cart')">[{{(cart==='')?'0':cart}}]<i class="bi bi-cart2"></i> Cart</a>&nbsp;
+
+      <ng-container *ngIf="!username">
+      <a class="btn btn-light border" (click)="showLogin()"><i class="bi bi-person-circle"></i> Login</a>
+      &nbsp;
+    </ng-container>
+    <!-- <a class="btn btn-light border" (mouseover)="op.toggle($event)"><i class="bi bi-music-note-beamed"></i></a> -->
+    </form>
+  </div>
+</nav>
+<hr>
+<div class="m-5"> </div>
+<!-- <p-progressBar mode="indeterminate" *ngIf="isLoading" [style]="{'height': '6px'}"></p-progressBar> -->
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+<p-toast></p-toast>
+
+<p-overlayPanel #op>
+  <!-- <ng-template pTemplate> -->
+    
+  <!-- </ng-template> -->
+</p-overlayPanel>
+
+<router-outlet></router-outlet>
+
+
+<br>
+
+<hr>
+<footer class="text-center">
+
+  <h3 class='text-danger'><img src="https://firebasestorage.googleapis.com/v0/b/album-b07e6.appspot.com/o/profile%2FBrand.png?alt=media&token=6200f74a-fb30-4642-9508-fd1ef60c99f3" width="40px" alt="Logo" />THe BRAND Store </h3>
+  <h5 class="text-primary">Brand Matter Here Price Doesn't Matter</h5>
+  <p>We Sell Branded Products only</p>
+  <p>Happy Shopping</p>
+
+</footer>
+
+<div class=" bg-black d-flex justify-content-center">
+  <p class='btn btn-link  text-white text-center text-decoration-none' >Customer Care <i class="bi bi-telephone"></i></p>
+  <p class='btn btn-link  text-white text-center text-decoration-none' >Chat with US <i class="bi bi-chat-dots"></i></p>
+</div>
